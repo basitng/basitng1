@@ -27,6 +27,7 @@
 html,
 body {
   width: 100%;
+  height: auto;
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
@@ -64,4 +65,16 @@ a:hover ::before {
 p {
   color: var(--text2);
   font-family: "basitng";
+}
+.body-wrapper {
+  width: 100%;
+}
+[data-scroll-container] {
+  background: #000;
+  height: auto;
+}
+.has-scroll-smooth {
+  z-index: 100;
+  position: relative;
+  min-height: none !important;
 }

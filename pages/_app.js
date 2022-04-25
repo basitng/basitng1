@@ -8,13 +8,18 @@ function MyApp({ Component, pageProps }) {
   const { route } = useRouter();
   return (
     <LocomotiveScrollProvider
-      options={{ smooth: true }}
+      options={{
+        smooth: true,
+        smoothMobile: true,
+        multiplier: -1,
+        resetNativeScroll: false,
+      }}
       watch={[route]}
       containerRef={containerRef}
     >
-      <main data-scroll-container>
+      <div data-scroll-container>
         <Component {...pageProps} />;
-      </main>
+      </div>
     </LocomotiveScrollProvider>
   );
 }

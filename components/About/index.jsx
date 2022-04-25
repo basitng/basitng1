@@ -6,8 +6,8 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 export default function _AboutSection() {
-  const containerRef = useRef();
-  const q = gsap.utils.selector(containerRef);
+  const boxRef = useRef();
+  const q = gsap.utils.selector(boxRef);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -21,10 +21,15 @@ export default function _AboutSection() {
       },
       {
         scrollTrigger: {
-          trigger: containerRef.current,
+          trigger: boxRef.current,
+          toggleActions: "play reverse restart restart",
+          start: "top center",
+          // end: "+=300",
+          scrub: true,
+          markers: true,
         },
         opacity: 1,
-        duration: 0.8,
+        duration: 1.5,
         ease: "sine.out",
         y: 0,
         stagger: 0.3,
@@ -33,7 +38,7 @@ export default function _AboutSection() {
   });
 
   return (
-    <About ref={containerRef}>
+    <About ref={boxRef}>
       <div>
         <h1>
           <span className="flow">I consider myself a</span>
